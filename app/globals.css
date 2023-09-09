@@ -6,6 +6,12 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --todo-background: #25273D;
+  --main-text-color: #767992;
+  --footer-text-color: #5B5E7E;
+  --todo-title-text-color: #C8CBE7;
+  --todo-done-item-text-color: #4D5067;
+  --selected-filter-color: #3A7CFD;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,4 +30,50 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: 1px solid #76799242;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+    background-image: 
+        url('/checked.png'), 
+        linear-gradient(to right, rgba(85, 221, 255, 1), rgba(192, 88, 243, 1));
+    background-size: 10px 8px, cover;
+    background-repeat: no-repeat, no-repeat;
+    background-position: center;
+    border: none;
+}
+
+@media (max-width: 640px) {
+  .todo-outer-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background-image: 
+        linear-gradient(to right, rgba(61, 16, 189, 0.75), rgba(164, 35, 149, 0.75)), 
+        url("/upper-bg.png");
+    background-size: contain, calc(180vw); 
+    background-position: center, -280px -610px, center; 
+  }
 }

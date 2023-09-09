@@ -11,7 +11,6 @@ export default function Todo() {
         <TodoHeader />
         <NewTodo />
         <TodoList />
-        <Filter />
         <div className='text-center text-[var(--footer-text-color)] text-sm mt-10'>Drag and drop to reorder list</div>
       </div>
     </main>

@@ -5,41 +5,13 @@ import Todo from '../components/Todo'
 import Filter from './Filter';
 import { TodoType, FilterType } from '@/types.d';
 
-export default function TodoList() {
-  const [currentFilter, setCurrentFilter] = useState(FilterType.ALL);
-  const [todos, setTodos] = useState<TodoType[]>([
-    {
-      id: 1,
-      status: true,
-      content: 'Complete online JavaScript course'
-    },
-    {
-      id: 2,
-      status: false,
-      content: 'Jog around the park 3x'
-    },
-    {
-      id: 3,
-      status: false,
-      content: '10 minutes meditation'
-    },
-    {
-      id: 4,
-      status: false,
-      content: 'Read for 1 hour'
-    },
-    {
-      id: 5,
-      status: false,
-      content: 'Pick up groceries'
-    },
-    {
-      id: 6,
-      status: false,
-      content: 'Complete Todo App'
-    }
-  ]);
+type Props = {
+  todos: TodoType[],
+  handleTodoCheck: (id: number) => void
+}
 
+export default function TodoList({ todos, handleTodoCheck }: Props) {
+  const [currentFilter, setCurrentFilter] = useState(FilterType.ALL);
   const handleFilterSelection = (filter: FilterType) => {
     setCurrentFilter(filter);
   }
@@ -56,29 +28,20 @@ export default function TodoList() {
     }
   }
 
-  const handleTodoCheck = (id: number) => {
-    setTodos(oldVal => {
-      return oldVal.map(todo => {
-        if (todo.id === id) {
-          return { ...todo, status: !todo.status };
-        }
-        return todo;
-      })
-    })
-  }
-
   return (
     <>
-      <div>
-        {getFilteredTodos().map((each, index, filteredTodos) => (
-          <Todo
-            key={each.id}
-            item={each}
-            isLast={index === filteredTodos.length - 1}
-            isFirst={index === 0}
-            check={handleTodoCheck}
-          />
-        ))}
+      <div >
+        <div className='max-h-[334px] overflow-scroll'>
+          {getFilteredTodos().map((each, index, filteredTodos) => (
+            <Todo
+              key={each.id}
+              item={each}
+              isLast={index === filteredTodos.length - 1}
+              isFirst={index === 0}
+              check={handleTodoCheck}
+            />
+          ))}
+        </div>
         <div className='flex shadow-lg items-center justify-between bg-[var(--todo-background)] rounded-b-[5px] px-5 gap-3 text-xs text-[var(--footer-text-color)] h-[50px]'>
           <div>
             {todos.filter(each => each.status === false).length} items left

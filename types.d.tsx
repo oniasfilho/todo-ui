@@ -1,7 +1,7 @@
 export type TodoType = {
   id: number;
   status: boolean;
-  content: String;
+  content: string;
 }
 
 export enum FilterType {

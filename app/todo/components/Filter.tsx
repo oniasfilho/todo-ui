@@ -10,7 +10,7 @@ export default function Filter({ activeFilter, onFilterSelect }: FilterProps) {
   const filters = Object.values(FilterType);
   return (
     <div className='shadow-lg bg-[var(--todo-background)] rounded-[5px] h-[48px] text-[var(--main-text-color)] text-xs
-                    flex items-center justify-center px-5 gap-3'>
+                    flex items-center justify-center px-5 gap-3 mt-2'>
       <div className='flex w-[166px] justify-between text-sm font-bold'>
         {filters.map(filter => (
           <p

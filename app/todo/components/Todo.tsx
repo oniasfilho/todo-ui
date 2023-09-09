@@ -1,7 +1,8 @@
+import { TodoType } from '@/types.d';
 import React from 'react'
 
 type Props = {
-  item: Todo,
+  item: TodoType,
   isLast: boolean,
   isFirst: boolean,
   check: (id: number) => void;

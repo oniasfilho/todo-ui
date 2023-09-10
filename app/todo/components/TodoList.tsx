@@ -50,7 +50,7 @@ export default function TodoList({ todos, handleTodoCheck, handleTodoDelete, han
           <div>
             {todos.filter(each => each.status === false).length} items left
           </div>
-          <div className='capitalize' onClick={handleClearCompleted}>
+          <div className='capitalize cursor-pointer' onClick={handleClearCompleted}>
             clear completed
           </div>
         </div>

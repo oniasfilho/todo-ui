@@ -36,11 +36,12 @@
 
 *::-webkit-scrollbar-track {
   background-color: var(--todo-background);
+  border-top-right-radius: 5px;
 }
 
 *::-webkit-scrollbar-thumb {
   background-color: var(--selected-filter-color);
-  border-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 body {

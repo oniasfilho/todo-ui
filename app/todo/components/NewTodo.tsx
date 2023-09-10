@@ -68,7 +68,7 @@ export default function NewTodo({ onCreateTodo }: Props) {
       </div>
       <div className='grid place-content-center'>
         <button onClick={handleButtonSubmit} className='h-3 w-3 mr-[5px] cursor-pointer' >
-          <img src="send.png" alt="Submit Button Icon" />
+          <img src="send.png" alt="Submit Button Icon" className='opacity-40' />
         </button>
       </div>
     </div>

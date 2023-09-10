@@ -7,10 +7,12 @@ import { TodoType, FilterType } from '@/types.d';
 
 type Props = {
   todos: TodoType[],
-  handleTodoCheck: (id: number) => void
+  handleTodoCheck: (id: number) => void,
+  handleTodoDelete: (id: number) => void,
+  handleClearCompleted: () => void,
 }
 
-export default function TodoList({ todos, handleTodoCheck }: Props) {
+export default function TodoList({ todos, handleTodoCheck, handleTodoDelete, handleClearCompleted }: Props) {
   const [currentFilter, setCurrentFilter] = useState(FilterType.ALL);
   const handleFilterSelection = (filter: FilterType) => {
     setCurrentFilter(filter);
@@ -38,7 +40,9 @@ export default function TodoList({ todos, handleTodoCheck }: Props) {
               item={each}
               isLast={index === filteredTodos.length - 1}
               isFirst={index === 0}
-              check={handleTodoCheck}
+              checkTodo={handleTodoCheck}
+              deleteTodo={handleTodoDelete}
+              clearCompleted={handleClearCompleted}
             />
           ))}
         </div>
@@ -46,7 +50,7 @@ export default function TodoList({ todos, handleTodoCheck }: Props) {
           <div>
             {todos.filter(each => each.status === false).length} items left
           </div>
-          <div className='capitalize'>
+          <div className='capitalize' onClick={handleClearCompleted}>
             clear completed
           </div>
         </div>

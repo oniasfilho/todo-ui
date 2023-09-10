@@ -63,6 +63,18 @@ export default function TodoApp() {
     })
   }
 
+  const handleTodoDelete = (id: number) => {
+    setTodos(oldVal => {
+      return oldVal.filter(e => e.id !== id)
+    })
+  }
+
+  const handleClearCompleted = () => {
+    setTodos(oldVal => {
+      return oldVal.filter(e => !e.status === true)
+    })
+  }
+
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme])
@@ -72,7 +84,12 @@ export default function TodoApp() {
       <div className='relative z-1 grid grid-rows-[60px_64px_384px_60px_auto] w-full h-full todo-inner-wrapper'>
         <TodoHeader />
         <NewTodo onCreateTodo={handleTodoSubmition} />
-        <TodoList todos={todos} handleTodoCheck={handleTodoCheck} />
+        <TodoList
+          todos={todos}
+          handleTodoCheck={handleTodoCheck}
+          handleTodoDelete={handleTodoDelete}
+          handleClearCompleted={handleClearCompleted}
+        />
         <div className='text-center text-[var(--footer-text-color)] text-sm mt-10'>Drag and drop to reorder list</div>
       </div>
     </main>

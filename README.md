@@ -13,7 +13,7 @@ Hello and thanks for visiting this project! 🎉
 
 The mission behind this project was to build a fully-featured Todo List application, emphasizing both aesthetics and utility. The development journey was enhanced using a modern stack including TypeScript, Next.js, React.js, Tailwind CSS, Redux, and OAuth2 for authentication.
 
-Feel free to view the live version of the project [here](https://github.com/oniasfilho/todo-api).
+Feel free to view the live version of the project [here](https://todo-ui-rust.vercel.app/todo).
 
 ![Page screenshot](image.png)
 
@@ -34,9 +34,9 @@ Feel free to view the live version of the project [here](https://github.com/onia
 ## Features Implemented
 
 ### Basic Todo Operations
-- Add new todos to the list.
-- Mark todos as complete.
-- Delete todos from the list.
+- Add new todo to the list.
+- Mark todo as complete.
+- Delete todo from the list.
 
 ### Advanced Filtering
 - Users can filter todos by their status: All, Active, or Complete.

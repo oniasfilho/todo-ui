@@ -1,5 +1,4 @@
 'use client'
-
 import React, { useState } from 'react'
 import { Draggable, DragDropContext } from 'react-beautiful-dnd';
 import { StrictModeDroppable } from '../../util/StrictModeDroppable'
@@ -44,31 +43,33 @@ export default function TodoList({ todos, handleTodoCheck, handleTodoDelete, han
   return (
     <>
       <div >
-        <DragDropContext onDragEnd={handleOnDragEnd}>
-          <StrictModeDroppable droppableId="todosDroppable">
-            {(provided: any) => (
-              <div {...provided.droppableProps} ref={provided.innerRef}>
-                {getFilteredTodos().map((each, index) => (
-                  <Draggable key={each.id} draggableId={String(each.id)} index={index}>
-                    {(provided) => (
-                      <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                        <Todo
-                          item={each}
-                          isLast={index === todos.length - 1}
-                          isFirst={index === 0}
-                          checkTodo={handleTodoCheck}
-                          deleteTodo={handleTodoDelete}
-                          clearCompleted={handleClearCompleted}
-                        />
-                      </div>
-                    )}
-                  </Draggable>
-                ))}
-                {provided.placeholder}
-              </div>
-            )}
-          </StrictModeDroppable>
-        </DragDropContext>
+        <div className='max-h-[334px] overflow-scroll overflow-x-hidden'>
+          <DragDropContext onDragEnd={handleOnDragEnd}>
+            <StrictModeDroppable droppableId="todosDroppable">
+              {(provided: any) => (
+                <div {...provided.droppableProps} ref={provided.innerRef}>
+                  {getFilteredTodos().map((each, index) => (
+                    <Draggable key={each.id} draggableId={String(each.id)} index={index}>
+                      {(provided) => (
+                        <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                          <Todo
+                            item={each}
+                            isLast={index === todos.length - 1}
+                            isFirst={index === 0}
+                            checkTodo={handleTodoCheck}
+                            deleteTodo={handleTodoDelete}
+                            clearCompleted={handleClearCompleted}
+                          />
+                        </div>
+                      )}
+                    </Draggable>
+                  ))}
+                  {provided.placeholder}
+                </div>
+              )}
+            </StrictModeDroppable>
+          </DragDropContext>
+        </div>
         <div className='flex shadow-lg items-center justify-between bg-[var(--todo-background)] rounded-b-[5px] px-5 gap-3 text-xs text-[var(--footer-text-color)] h-[50px]'>
           <div>
             {todos.filter(each => each.status === false).length} items left

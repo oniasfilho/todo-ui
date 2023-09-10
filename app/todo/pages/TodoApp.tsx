@@ -49,12 +49,14 @@ export default function TodoApp() {
 
 
   const handleTodoSubmition = (newTodo: TodoType) => {
-    setTodos(oldVal => {
-      oldVal.push(newTodo)
-      return [
-        ...oldVal
-      ]
-    })
+    if (newTodo.content.trim().length !== 0) {
+      setTodos(oldVal => {
+        oldVal.push(newTodo)
+        return [
+          ...oldVal
+        ]
+      })
+    }
   }
 
   const handleTodoCheck = (id: number) => {

@@ -43,6 +43,11 @@ export default function TodoApp() {
     }
   ]);
 
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme])
+
+
   const handleTodoSubmition = (newTodo: TodoType) => {
     setTodos(oldVal => {
       oldVal.push(newTodo)
@@ -75,9 +80,14 @@ export default function TodoApp() {
     })
   }
 
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme])
+  const handleReorderTodos = (startIndex: number, endIndex: number) => {
+    setTodos((oldVal) => {
+      const todosCopy = [...oldVal];
+      const [movedTodo] = todosCopy.splice(startIndex, 1);
+      todosCopy.splice(endIndex, 0, movedTodo);
+      return todosCopy;
+    });
+  };
 
   return (
     <main className=' relative z-0 w-screen py-[48px] px-[24px] h-screen grid todo-outer-wrapper bg-[var(--main-background)] min-w-[321px] min-h-screen'>
@@ -89,6 +99,7 @@ export default function TodoApp() {
           handleTodoCheck={handleTodoCheck}
           handleTodoDelete={handleTodoDelete}
           handleClearCompleted={handleClearCompleted}
+          onReorder={handleReorderTodos}
         />
         <div className='text-center text-[var(--footer-text-color)] text-sm mt-10'>Drag and drop to reorder list</div>
       </div>

@@ -74,12 +74,19 @@ export default function TodoList({ todos, handleTodoCheck, handleTodoDelete, han
           <div>
             {todos.filter(each => each.status === false).length} items left
           </div>
+
+          <div className='hidden md:block lg:block'>
+            <Filter activeFilter={currentFilter} onFilterSelect={handleFilterSelection} />
+          </div>
+
           <div className='capitalize cursor-pointer' onClick={handleClearCompleted}>
             clear completed
           </div>
         </div>
       </div>
-      <Filter activeFilter={currentFilter} onFilterSelect={handleFilterSelection} />
+      <div className='md:hidden lg:hidden'>
+        <Filter activeFilter={currentFilter} onFilterSelect={handleFilterSelection} />
+      </div>
     </>
   )
 }

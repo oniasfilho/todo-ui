@@ -14,6 +14,7 @@
   --todo-done-item-text-color: #D1D2DA;
   --selected-filter-color: #3A7CFD;
   --new-todo-placeholder-text-color: #9495A5;
+  --filter-text-color-hover: #262838;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,6 +29,8 @@
     --todo-title-text-color: #C8CBE7;
     --todo-done-item-text-color: #4D5067;
     --selected-filter-color: #3A7CFD;
+    --filter-text-color-hover: rgba(227, 228, 241, 1);
+
   }
 }
 
@@ -43,6 +46,8 @@
   --todo-done-item-text-color: #4D5067;
   --selected-filter-color: #3A7CFD;
   --new-todo-placeholder-text-color: #767992;
+  --filter-text-color-hover: rgba(227, 228, 241, 1);
+
 
 }
 
@@ -58,6 +63,7 @@
   --todo-done-item-text-color: #D1D2DA;
   --selected-filter-color: #3A7CFD;
   --new-todo-placeholder-text-color: #9495A5;
+  --filter-text-color-hover: #262838
 }
 
 .todo-outer-wrapper::before {
@@ -147,6 +153,10 @@ input[type="checkbox"]:checked {
     background-repeat: no-repeat, no-repeat;
     background-position: center;
     border: none;
+}
+
+input[type="checkbox"]:hover {
+    border: 1px white;
 }
 
 input[type="text"] {

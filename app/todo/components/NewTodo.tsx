@@ -38,26 +38,39 @@ export default function NewTodo({ onCreateTodo }: Props) {
     })
   }
 
-  const handleSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleEnterSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       onCreateTodo(newTodo)
       setNewTodo(generateBlankTodo())
     }
   }
 
+  const handleButtonSubmit = () => {
+    onCreateTodo(newTodo)
+    setNewTodo(generateBlankTodo())
+  }
+
   return (
     <div className='shadow-lg bg-[var(--todo-background)] rounded-[5px] h-[48px] text-[var(--main-text-color)] text-xs
-                    flex items-center px-5 gap-3'>
-      <input type='checkbox'
-        onChange={handleCheck}
-        checked={newTodo.status}
-      />
-      <input type="text"
-        placeholder='Create a new todo...'
-        onChange={handleText}
-        onKeyDown={handleSubmit}
-        value={newTodo.content}
-      />
+                    flex items-center px-5 justify-between'>
+      <div className='flex gap-3'>
+        <input type='checkbox'
+          onChange={handleCheck}
+          checked={newTodo.status}
+        />
+        <input type="text"
+          placeholder='Create a new todo...'
+          className='min-w-[250px] min-h-full'
+          onChange={handleText}
+          onKeyDown={handleEnterSubmit}
+          value={newTodo.content}
+        />
+      </div>
+      <div className='grid place-content-center'>
+        <button onClick={handleButtonSubmit} className='h-3 w-3 mr-[5px] cursor-pointer' >
+          <img src="send.png" alt="Submit Button Icon" />
+        </button>
+      </div>
     </div>
   )
 }

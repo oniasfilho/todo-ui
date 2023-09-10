@@ -31,7 +31,7 @@ export default function TodoList({ todos, handleTodoCheck }: Props) {
   return (
     <>
       <div >
-        <div className='max-h-[334px] overflow-scroll'>
+        <div className='max-h-[334px] overflow-scroll overflow-x-hidden'>
           {getFilteredTodos().map((each, index, filteredTodos) => (
             <Todo
               key={each.id}

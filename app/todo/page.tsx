@@ -63,7 +63,7 @@ export default function Todo() {
   }
 
   return (
-    <main className=' relative z-0 w-screen py-[48px] px-[24px] h-screen grid todo-outer-wrapper bg-[#171823] min-w-[321px] min-h-screen'>
+    <main className=' relative z-0 w-screen py-[48px] px-[24px] h-screen grid todo-outer-wrapper bg-[var(--main-background)] min-w-[321px] min-h-screen'>
       <div className='relative z-1 grid grid-rows-[60px_64px_384px_60px_auto] w-full h-full todo-inner-wrapper'>
         <TodoHeader />
         <NewTodo onCreateTodo={handleTodoSubmition} />

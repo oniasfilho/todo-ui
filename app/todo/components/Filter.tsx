@@ -15,7 +15,7 @@ export default function Filter({ activeFilter, onFilterSelect }: FilterProps) {
         {filters.map(filter => (
           <p
             key={filter}
-            className={filter === activeFilter ? 'text-[var(--selected-filter-color)]' : ''}
+            className={`${filter === activeFilter ? 'text-[var(--selected-filter-color)]' : ''} cursor-pointer`}
             onClick={() => onFilterSelect(filter)}
           >
             {filter}

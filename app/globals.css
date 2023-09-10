@@ -37,11 +37,13 @@
   --background-end-rgb: 0, 0, 0;
   --todo-background: #25273D;
   --main-background: #171823;
-  --main-text-color: #767992;
+  --main-text-color: #C8CBE7;
   --footer-text-color: #5B5E7E;
   --todo-title-text-color: #C8CBE7;
   --todo-done-item-text-color: #4D5067;
   --selected-filter-color: #3A7CFD;
+  --new-todo-placeholder-text-color: #767992;
+
 }
 
 [data-theme="light"] {
@@ -58,21 +60,21 @@
   --new-todo-placeholder-text-color: #9495A5;
 }
 
-@media (max-width: 640px) {
-  .todo-outer-wrapper::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 200px;
-    background-image: 
-        linear-gradient(to right, rgba(61, 16, 189, 0.75), rgba(164, 35, 149, 0.75)), 
-        url("/upper-bg.png");
-    background-size: contain, calc(180vw); 
-    background-position: center, -280px -610px, center; 
-  }
+.todo-outer-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background-image: 
+      linear-gradient(to right, rgba(61, 16, 189, 0.75), rgba(164, 35, 149, 0.75)), 
+      url("/upper-bg-light.png");
+  background-size: contain, 120vw auto; 
+  background-position: center, right center; 
+  background-repeat: no-repeat, no-repeat;
 }
+
 
 [data-theme="light"] .todo-outer-wrapper::before {
     background-image: 

@@ -52,7 +52,7 @@ export default function NewTodo({ onCreateTodo }: Props) {
 
   return (
     <div className='shadow-lg bg-[var(--todo-background)] rounded-[5px] h-[48px] text-[var(--main-text-color)] text-xs
-                    flex items-center px-5 justify-between'>
+                    flex items-center px-5 lg:mb-2 md:mb-2 justify-between'>
       <div className='flex gap-3'>
         <input type='checkbox'
           onChange={handleCheck}

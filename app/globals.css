@@ -6,6 +6,35 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --todo-background: #FFFFFF;
+  --main-background: #FAFAFA;
+  --main-text-color: #494C6B;
+  --footer-text-color: #5B5E7E;
+  --todo-title-text-color: #C8CBE7;
+  --todo-done-item-text-color: #D1D2DA;
+  --selected-filter-color: #3A7CFD;
+  --new-todo-placeholder-text-color: #9495A5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+    --todo-background: #25273D;
+    --main-background: #171823;
+    --main-text-color: #767992;
+    --footer-text-color: #5B5E7E;
+    --todo-title-text-color: #C8CBE7;
+    --todo-done-item-text-color: #4D5067;
+    --selected-filter-color: #3A7CFD;
+  }
+}
+
+[data-theme="dark"] {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
   --todo-background: #25273D;
   --main-background: #171823;
   --main-text-color: #767992;
@@ -15,12 +44,18 @@
   --selected-filter-color: #3A7CFD;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+[data-theme="light"] {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --todo-background: #FFFFFF;
+  --main-background: #FAFAFA;
+  --main-text-color: #494C6B;
+  --footer-text-color: #5B5E7E;
+  --todo-title-text-color: #C8CBE7;
+  --todo-done-item-text-color: #D1D2DA;
+  --selected-filter-color: #3A7CFD;
+  --new-todo-placeholder-text-color: #9495A5;
 }
 
 * {
@@ -94,23 +129,23 @@ input[type="text"] {
 }
 
 input[type="text"]::placeholder {
-  color: var(--main-text-color);
+  color: var(--new-todo-placeholder-text-color);
 }
 
 input[type="text"]::-webkit-input-placeholder {
-  color: var(--main-text-color);
+  color: var(--new-todo-placeholder-text-color);
 }
 
 input[type="text"]::-moz-placeholder {
-  color: var(--main-text-color);
+  color: var(--new-todo-placeholder-text-color);
 }
 
 input[type="text"]:-ms-input-placeholder {
-  color: var(--main-text-color);
+  color: var(--new-todo-placeholder-text-color);
 }
 
 input[type="text"]:-moz-placeholder {
-  color: var(--main-text-color);
+  color: var(--new-todo-placeholder-text-color);
 }
 
 

@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Viewport } from 'next/dist/lib/metadata/types/extra-types'
 import { Josefin_Sans } from 'next/font/google'
 
+
 const josefin = Josefin_Sans({ subsets: ['latin'] })
 
 const viewportConfig: Viewport = {

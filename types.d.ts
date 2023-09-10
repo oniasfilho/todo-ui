@@ -9,3 +9,13 @@ export enum FilterType {
   ACTIVE = 'Active',
   COMPLETED = 'Completed'
 }
+
+export type ThemeType = 'light' | 'dark';
+
+export interface ThemeState {
+  value: ThemeType;
+}
+
+export interface RootState {
+  theme: ThemeState;
+}
